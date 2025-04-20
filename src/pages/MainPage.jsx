@@ -24,9 +24,9 @@ const MainPage = () => {
       <SearchBar fetchedData={handleData}/>
 
       <div>
-        {dataList.length === 0 ? ( <div className="Teams"><p>No results</p></div> ) : (
+        {dataList.length === 0 ? ( <div className="dataList"><p>No results</p></div> ) : (
           dataList.map((entity) => (
-            <div key={entity.id} className="Teams">
+            <div key={entity.id} className="dataList">
               <h3>{entity.name}</h3>
               <p>{entity.description}</p>
               <Link to={`/detail/${entity.id}`}>

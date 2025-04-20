@@ -24,7 +24,6 @@ const sportIDs = [
 const SearchBar = ({fetchedData}) => {
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [data, setData] = useState([]);
 
   const [selectedTypeIDs, setSelectedTypeIDs] = useState([]);  // getting values from selectBoxes
   const [selectedSportIDs, setSelectedSportIDs] = useState([]);
@@ -37,9 +36,8 @@ const SearchBar = ({fetchedData}) => {
 
     axios.get(`https://s.livesport.services/api/v2/search?type-ids=${typeIDsItems}&project-type-id=1&project-id=602&lang-id=1&q=${searchInput}&sport-ids=${sportIDsItems}`)
     .then( (response) => {
-      setData(response.data);
+      fetchedData(response.data);
       setLoading(false);
-      fetchedData(data);
     })
     .catch( (error) => {
       setLoading(false);
