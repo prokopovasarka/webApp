@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import './SelectBar.css'
 
-const MultiSelect = ({ options }) => {
+const SelectBar = ({ options, onChange }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   const handleChange = (items) => {
@@ -23,4 +23,4 @@ const MultiSelect = ({ options }) => {
   );
 };
 
-export default MultiSelect;
+export default SelectBar;

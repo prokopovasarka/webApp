@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import MultiSelect from './SelectBar';
+import SelectBar from './SelectBar';
 
 const typeIDs = [
   { value: '1', label: 'soutěže' },
@@ -54,10 +54,12 @@ const SearchBar = () => {
   };
 
   const handleTypeIDChange = (items) => {
+    setError(null);
     setSelectedTypeIDs(items || []);
   }
 
   const handleSportIDChange = (items) => {
+    setError(null);
     setSelectedSportIDs(items || []);
   }
 
@@ -67,8 +69,8 @@ const SearchBar = () => {
       <button id="search" onClick={fetchData}>Hledat</button>
 
       <div className="filter">
-      <MultiSelect options={typeIDs} onChange={handleTypeIDChange}/>
-      <MultiSelect options={sportIDs} onChange={handleSportIDChange}/>
+      <SelectBar options={typeIDs} onChange={handleTypeIDChange}/>
+      <SelectBar options={sportIDs} onChange={handleSportIDChange}/>
       </div>
 
       {loading && <div>Načítám...</div>}
