@@ -58,3 +58,27 @@ input{
     font-family: inherit;
     width: 20vw;
 }
+
+.icon{
+    margin: 5px;
+}
+
+.dataTitle{
+    display: flex;
+    background-color:  rgba(7, 64, 83, 0.527);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    width: 90vw; 
+    margin: 0 auto;
+    padding-right: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+h2{
+    color: rgba(255, 255, 255, 0.829);
+    align-items: center;
+    padding: 10px;
+    font-size: 30px;
+}
