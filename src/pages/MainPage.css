@@ -8,6 +8,7 @@
     padding-right: 10px;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .Teams p {
@@ -51,4 +52,5 @@ input{
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
+    width: 20vw;
 }

@@ -21,7 +21,7 @@ const sportIDs = [
 ];
 
 // handles whole search bar
-const SearchBar = () => {
+const SearchBar = ({fetchedData}) => {
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [data, setData] = useState([]);
@@ -39,6 +39,7 @@ const SearchBar = () => {
     .then( (response) => {
       setData(response.data);
       setLoading(false);
+      fetchedData(data);
     })
     .catch( (error) => {
       setLoading(false);

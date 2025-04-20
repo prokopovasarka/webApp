@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './MainPage.css'
 import SearchBar from './SearchBar'
 
 const MainPage = () => {
+  const [dataList, setDataList] = useState([]);
+
+  const handleData = (foundData) => {
+    setDataList(foundData);
+  }
 
   const MyButton = () => {
       return(
@@ -15,10 +21,20 @@ const MainPage = () => {
   return(
     <div>
       <h1>Výsledky</h1>
-      <SearchBar/>
-      <div className="Teams">
-        <p>Zde bude tabulka</p>
-        <MyButton/>
+      <SearchBar fetchedData={handleData}/>
+
+      <div>
+        {dataList.length === 0 ? ( <div className="Teams"><p>No results</p></div> ) : (
+          dataList.map((entity) => (
+            <div key={entity.id} className="Teams">
+              <h3>{entity.name}</h3>
+              <p>{entity.description}</p>
+              <Link to={`/detail/${entity.id}`}>
+                <button className="detailButton">Detail</button>
+              </Link>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
