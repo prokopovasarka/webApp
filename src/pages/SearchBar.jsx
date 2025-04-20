@@ -23,7 +23,6 @@ const sportIDs = [
 // handles whole search bar
 const SearchBar = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [data, setData] = useState([]);
 
@@ -42,10 +41,8 @@ const SearchBar = () => {
       setLoading(false);
     })
     .catch( (error) => {
-      setError(error.message);
       setLoading(false);
-      alert(error);
-      setError(null);
+      alert(error.message);
     })
   };
 
