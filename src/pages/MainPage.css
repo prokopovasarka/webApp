@@ -5,9 +5,9 @@
     border: 1px solid transparent;
     width: 90vw; 
     margin: 0 auto;
-    place-items: center;
-    justify-content: center;
     padding-right: 10px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .Teams p {
@@ -24,11 +24,12 @@
     font-weight: 500;
     font-family: inherit;
     background-color: #1a1a1a;
+    color: white;
     cursor: pointer;
     transition: border-color 0.25s;
   }
   button:hover {
-    border-color: #646cff;
+    border-color: #6488ff;
   }
   button:focus,
   button:focus-visible {
