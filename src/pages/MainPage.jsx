@@ -26,15 +26,15 @@ const MainPage = () => {
     setDataList(foundData);
   }
 
-  const MyButton = () => {
-      return(
-        <Link to = "/detail/">
-          <button className="detailButton" >Detail</button>
-        </Link>
-      );
-  }
-
   const groupedData = groupBySport(dataList);
+
+  const findImgPath = (entity) => {
+    const imgPath = entity.images.find(obj => obj.variantTypeId === 15);
+
+    if(imgPath) return `https://www.livesport.cz/res/image/data/${imgPath.path}`;
+
+    return `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL_JlCFnIGX5omgjEjgV9F3sBRq14eTERK9w&s`;
+  }
   
   return(
     <div>
@@ -52,13 +52,13 @@ const MainPage = () => {
                 <h2 className="dataTitle">{sport.sportName}</h2>
                 {sport.entities.map((entity) => (
                   <div key={entity.id} className="dataList">
-                    <h3>{entity.name}</h3>
                     <img
-                      src={`https://www.livesport.cz/res/image/data/TODO`}
+                      src={findImgPath(entity)}
                       alt={entity.name}
                       className="icon"
                     />
-                    <Link to={`/detail/${entity.id}`}>
+                    <h3>{entity.name}</h3>
+                    <Link to={`/detail/${entity.id}`} state={{entity}}>
                       <button className="detailButton">Detail</button>
                     </Link>
                   </div>

@@ -32,13 +32,13 @@
     color: white;
     cursor: pointer;
     transition: border-color 0.25s;
-  }
-  button:hover {
+}
+button:hover {
     border-color: #6488ff;
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 #search{
@@ -65,7 +65,7 @@ input{
 
 .dataTitle{
     display: flex;
-    background-color:  rgba(7, 64, 83, 0.527);
+    background-color:  rgb(14, 9, 63);
     border-radius: 8px;
     border: 1px solid transparent;
     width: 90vw; 
@@ -81,4 +81,8 @@ h2{
     align-items: center;
     padding: 10px;
     font-size: 30px;
+}
+
+img{
+    width: 100px;
 }
