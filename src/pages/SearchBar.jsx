@@ -44,22 +44,21 @@ const SearchBar = () => {
     .catch( (error) => {
       setError(error.message);
       setLoading(false);
-    }), []
+      alert(error);
+      setError(null);
+    })
   };
 
   const handleChange = (e) => {
-    setError(null);
     e.preventDefault();
     setSearchInput(e.target.value);
   };
 
   const handleTypeIDChange = (items) => {
-    setError(null);
     setSelectedTypeIDs(items || []);
   }
 
   const handleSportIDChange = (items) => {
-    setError(null);
     setSelectedSportIDs(items || []);
   }
 
@@ -74,7 +73,6 @@ const SearchBar = () => {
       </div>
 
       {loading && <div>Načítám...</div>}
-      {error && alert(error)}
     </div>
   );
 }
