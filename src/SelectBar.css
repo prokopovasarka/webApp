@@ -1,0 +1,10 @@
+.filter{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    gap: 5px;
+    font-size: 1em;
+    font-weight: 400;
+    font-family: inherit;
+    color: #000000;
+}
