@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [data, setData] = useState([]);
   
   const fetchData = () => {
-    axios.get(https://s.livesport.services/api/v2/search?type-ids=${searchInput.type-ids})
+    axios.get(`https://s.livesport.services/api/v2/search?type-ids=${searchInput}`)
     .then( (response) => {
       setData(response.data);
       setLoading(true);
