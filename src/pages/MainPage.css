@@ -39,10 +39,24 @@
 .search{
     padding: 10px;
     margin-left: 10px;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+select{
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
 }
 
 input{
     padding: 10px;
     margin-bottom: 10px;
     width: 30%;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
 }
