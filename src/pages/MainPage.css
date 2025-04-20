@@ -36,15 +36,7 @@
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-.search{
-    padding: 10px;
-    margin-left: 10px;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-}
-
-select{
+#search{
     padding: 10px;
     margin-left: 10px;
     font-size: 1em;

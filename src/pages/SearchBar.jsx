@@ -1,52 +1,75 @@
 import { useState } from 'react';
 import axios from 'axios';
+import MultiSelect from './SelectBar';
 
+const typeIDs = [
+  { value: '1', label: 'soutěže' },
+  { value: '2', label: 'týmy' },
+  { value: '3', label: 'hráči jednotlivci' },
+  { value: '4', label: 'hráči v týmech' }
+];
+
+const sportIDs = [
+  { value: '1', label: 'Fotbal' },
+  { value: '2', label: 'Tenis' },
+  { value: '3', label: 'Basketbal' },
+  { value: '4', label: 'Hokej' },
+  { value: '5', label: 'Americký fotbal' },
+  { value: '6', label: 'Baseball' },
+  { value: '7', label: 'Házená' },
+  { value: '8', label: 'Rugby' }
+];
+
+// handles whole search bar
 const SearchBar = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [data, setData] = useState([]);
+
+  const [selectedTypeIDs, setSelectedTypeIDs] = useState([]);  // getting values from selectBoxes
+  const [selectedSportIDs, setSelectedSportIDs] = useState([]);
   
   const fetchData = () => {
-    axios.get(`https://s.livesport.services/api/v2/search?type-ids=TODO&project-type-id=1&
-                project-id=602&lang-id=1&q=${searchInput}&sport-ids=TODO`)
+    const typeIDsItems = selectedTypeIDs.map(option => option.value).join(',');
+    const sportIDsItems = selectedSportIDs.map(option => option.value).join(',');
+
+    setLoading(true);
+
+    axios.get(`https://s.livesport.services/api/v2/search?type-ids=${typeIDsItems}&project-type-id=1&project-id=602&lang-id=1&q=${searchInput}&sport-ids=${sportIDsItems}`)
     .then( (response) => {
       setData(response.data);
-      setLoading(true);
+      setLoading(false);
     })
     .catch( (error) => {
       setError(error.message);
       setLoading(false);
-    }, [])
+    }), []
   };
 
-  const HandleChange = (e) => {
+  const handleChange = (e) => {
+    setError(null);
     e.preventDefault();
     setSearchInput(e.target.value);
   };
 
+  const handleTypeIDChange = (items) => {
+    setSelectedTypeIDs(items || []);
+  }
+
+  const handleSportIDChange = (items) => {
+    setSelectedSportIDs(items || []);
+  }
+
   return(
     <div>
-      <input type="text" placeholder="Vyhledej" onChange={HandleChange} value={searchInput} />
-      <select multiple>
-        <option value="1">Soutěže</option>
-        <option value="2">Týmy</option>
-        <option value="3">Hráči jednotlivci</option>
-        <option value="4">Hráči v týmech</option>
-      </select>
+      <input type="text" placeholder="Vyhledej" onChange={handleChange} value={searchInput} />
+      <button id="search" onClick={fetchData}>Hledat</button>
 
-      <select multiple>
-        <option value="1">Fotbal</option>
-        <option value="2">Tenis</option>
-        <option value="3">Basketbal</option>
-        <option value="4">Hokej</option>
-        <option value="5">Americký fotbal</option>
-        <option value="6">Baseball</option>
-        <option value="7">Házená</option>
-        <option value="8">Rugby</option>
-        <option value="9">Florbal</option>
-      </select>
-      <button className="search" onClick={fetchData}>Hledat</button>
+      <div className="filter">
+      <MultiSelect options={typeIDs} onChange={handleTypeIDChange}/>
+      <MultiSelect options={sportIDs} onChange={handleSportIDChange}/>
+      </div>
 
       {loading && <div>Načítám...</div>}
       {error && alert(error)}
