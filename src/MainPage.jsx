@@ -26,14 +26,6 @@ const MainPage = () => {
     setDataList(foundData);
   }
 
-  const MyButton = () => {
-      return(
-        <Link to = "/detail/">
-          <button className="detailButton" >Detail</button>
-        </Link>
-      );
-  }
-
   const groupedData = groupBySport(dataList);
 
   const findImgPath = (entity) => {
@@ -66,7 +58,7 @@ const MainPage = () => {
                       className="icon"
                     />
                     <h3>{entity.name}</h3>
-                    <Link to={`/detail/${entity.id}`}>
+                    <Link to={`/detail/${entity.id}`} state={{entity}}>
                       <button className="detailButton">Detail</button>
                     </Link>
                   </div>
