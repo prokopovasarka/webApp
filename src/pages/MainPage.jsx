@@ -38,12 +38,12 @@ const MainPage = () => {
   
   return(
     <div>
-      <h1>Výsledky</h1>
+      <h1 className="pageTitle">VÝSLEDKY</h1>
       <SearchBar fetchedData={handleData} />
 
       <div>
         {Object.keys(groupedData).length === 0 ? (
-          <div className="dataList"><p>No results</p></div>
+          <div className="dataList"><p>Nothing here :(</p></div>
         ) : (
           Object.keys(groupedData).map((sportId) => {
             const sport = groupedData[sportId];

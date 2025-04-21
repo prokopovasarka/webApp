@@ -1,6 +1,7 @@
 .dataList{
     display: flex;
-    background-color:  rgba(173, 216, 230, 0.1);
+    background:  rgba(173, 216, 230, 0.1);
+    transition: background 0.4s ease, transform 0.3s ease;
     border-radius: 8px;
     border: 1px solid transparent;
     width: 90vw; 
@@ -8,17 +9,27 @@
     padding-right: 10px;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.35);
+}
+
+.dataList:hover{
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .dataList p {
     align-items: center;
     padding-right: 10px;
     padding-left: 10px;
+    text-shadow: 2px 2px 5px rgb(51, 9, 238);
 }
 
 .dataList h3 {
     padding-left: 10px;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 20px rgba(35, 35, 129, 0.849), 0 0 5px rgba(109, 109, 233, 0.89);
 }
 
 .detailButton {
@@ -34,7 +45,7 @@
     transition: border-color 0.25s;
 }
 button:hover {
-    border-color: #6488ff;
+    border-color: #d4dbf5;
 }
 button:focus,
 button:focus-visible {
@@ -65,9 +76,9 @@ input{
 
 .dataTitle{
     display: flex;
-    background-color:  rgb(14, 9, 63);
+    background-color: rgb(14, 9, 63);
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 1px solid #ffffff;
     width: 90vw; 
     margin: 0 auto;
     padding-right: 10px;
@@ -85,4 +96,26 @@ h2{
 
 img{
     width: 100px;
+}
+
+.pageTitle {
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 40px 0 20px 0;
+    color: #95abc09c;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+.pageTitle::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #4d68c2;
+    margin: 16px auto 0 auto;
+    border-radius: 2px;
 }
