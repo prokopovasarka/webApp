@@ -1,4 +1,4 @@
-# "RESULTS"
+# "Livesport Search App"
 
 This project is dedicated to personal/work matters. It is a simple web application that delivers search results from a database and other details of the information searched.
 
@@ -8,9 +8,10 @@ To run this project locally for development you run:
 npm install
 npm run dev
 ```
+Accessible also on: https://webapp-27d6.onrender.com/
 
 ## STRUCTURE
-Page is structured in two pages: MainPage and Detail
+App is structured in two pages: MainPage and Detail
 
 MainPage:
 - Main logic of this project. Contains search bar and takes care of results listing.
