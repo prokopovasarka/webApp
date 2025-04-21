@@ -1,10 +1,15 @@
 .detail {
     display: flex;
     justify-content: center;
-    background-color: #ffffff2a;
+    background-color: #ffffff13;
     border-radius: 50%;
     height: 40vw;
     width: 40vw;
+    transition: 0.2s;
+}
+
+.detail:hover{
+  margin-top: -10px;
 }
 
 .detailContent {
@@ -22,12 +27,12 @@
     background-color: #1a1a1a;
     color: white;
     cursor: pointer;
-    transition: border-color 0.25s;
+    transition: 0.2s;
 }
-button:hover {
-  border-color: #6488ff;
+.goBack:hover {
+  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 45%, #2a2a2a 55%, #1a1a1a 100%);
 }
-button:focus,
-button:focus-visible {
+.goBack:focus,
+.goBack:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }

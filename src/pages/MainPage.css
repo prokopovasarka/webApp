@@ -44,11 +44,11 @@
     cursor: pointer;
     transition: border-color 0.25s;
 }
-button:hover {
-    border-color: #d4dbf5;
+.detailButton:hover {
+    border-color: #ffffff;
 }
-button:focus,
-button:focus-visible {
+.detailButton:focus,
+.detailButton:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
