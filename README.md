@@ -6,10 +6,6 @@ This project is dedicated to personal/work matters. It is a simple web applicati
 To run this project locally for development you run: 
 ```
 npm install
-npm install react react-dom
-npm install react-router-dom
-npm install axios
-npm install react-select
 npm run dev
 ```
 
